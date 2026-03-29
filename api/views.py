@@ -206,7 +206,16 @@ def paciente_detail(request, pk):
 @api_view(['GET', 'POST'])
 def agendamentos_list(request):
     if request.method == 'GET':
-        qs = Agendamento.objects.all().order_by('data', 'horario')
+        hoje = date.today()
+        ano = _parse_int(request.query_params.get('ano'), hoje.year)
+        mes = _parse_int(request.query_params.get('mes'), hoje.month)
+        import calendar
+        from datetime import timedelta
+        primeiro_dia = date(ano, mes, 1)
+        ultimo_dia   = date(ano, mes, calendar.monthrange(ano, mes)[1])
+        inicio = primeiro_dia - timedelta(days=35)
+        fim    = ultimo_dia   + timedelta(days=35)
+        qs = Agendamento.objects.filter(data__range=[inicio, fim]).order_by('data', 'horario')
         return Response(AgendamentoSerializer(qs, many=True).data)
 
     serializer = AgendamentoSerializer(data=request.data)

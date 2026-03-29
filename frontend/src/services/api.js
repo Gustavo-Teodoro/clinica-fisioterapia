@@ -28,7 +28,7 @@ export const editarPaciente  = (id, data)     => request(`/pacientes/${id}/`, { 
 export const excluirPaciente = (id)           => request(`/pacientes/${id}/`, { method: 'DELETE' })
 
 // Agendamentos
-export const getAgendamentos    = ()          => request('/agendamentos/')
+export const getAgendamentos    = (ano, mes) => request(`/agendamentos/${ano && mes ? `?ano=${ano}&mes=${mes}` : ''}`)
 export const criarAgendamento   = (data)      => request('/agendamentos/', { method: 'POST', body: JSON.stringify(data) })
 export const editarAgendamento  = (id, data)  => request(`/agendamentos/${id}/`, { method: 'PUT', body: JSON.stringify(data) })
 export const excluirAgendamento = (id)        => request(`/agendamentos/${id}/`, { method: 'DELETE' })

@@ -1,14 +1,14 @@
 from pathlib import Path
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ── SEGURANÇA ────────────────────────────────────────────────────────────
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback')
-DEBUG = False
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-clinica-fernanda-teodoro-2026'
+)
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     'gustavoteodoro.pythonanywhere.com',
@@ -85,6 +85,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 
-# ── GEMINI (Importar ficha com IA) ───────────────────────────────────────
-# A chave fica no arquivo .env
-GEMINI_API_KEY = os.environ.get('AIzaSyADlD37mqTc-9mQBIwELEpa9fhOsiO3kQo', '')
+# ── ANTHROPIC (Importar ficha com IA) ────────────────────────────────────
+# Defina sua chave em: https://console.anthropic.com/
+# Recomendado: use variável de ambiente no servidor
+ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY', '')

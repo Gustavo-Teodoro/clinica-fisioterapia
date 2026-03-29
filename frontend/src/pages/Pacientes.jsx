@@ -61,12 +61,14 @@ export default function Pacientes() {
   const [sugestoes,setSugestoes]= useState([])
   const [mostrarSug,setMostrarSug]=useState(false)
 
-  const carregar = async () => {
-    const [ps, as] = await Promise.all([getPacientes(), getAgendamentos()])
+  const carregar = async (a, m) => {
+    const anoAtual = a || mesAtual.getFullYear()
+    const mesAtual_ = m || (mesAtual.getMonth() + 1)
+    const [ps, as] = await Promise.all([getPacientes(), getAgendamentos(anoAtual, mesAtual_)])
     setPacientes(ps)
     setAgendamentos(as)
   }
-  useEffect(() => { carregar() }, [])
+  useEffect(() => { carregar() }, [mesAtual])
 
   const ano = mesAtual.getFullYear()
   const mes = mesAtual.getMonth()
