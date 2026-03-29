@@ -11,7 +11,6 @@ Sistema web completo para gestão de clínica de fisioterapia e pilates. Desenvo
 - **Pacientes** — Ficha clínica completa com histórico de saúde, evoluções e exames em PDF
 - **Pacotes de sessões** — Controle de sessões contratadas com barra de progresso e alertas automáticos
 - **Financeiro** — Lançamentos de receitas e despesas, relatório mensal e controle de pendentes
-- **Dashboard** — Visão geral do dia com alertas inteligentes sobre pacotes e pagamentos
 - **Importar ficha** — Fotografe uma ficha de papel e a IA preenche o cadastro automaticamente
 - **Controle de acesso** — Perfis distintos para clínica, financeiro e administrador
 
