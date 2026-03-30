@@ -13,7 +13,6 @@ __pycache__/
 media/
 
 # Build do frontend
-staticfiles/assets/
 node_modules/
 
 # Variáveis de ambiente
