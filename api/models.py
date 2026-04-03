@@ -6,7 +6,6 @@ class Usuario(models.Model):
         ('admin',    'Administrador — acesso total'),
         ('clinica',  'Clínica — agenda e pacientes'),
         ('contador', 'Contador — somente financeiro'),
-        ('demo',     'Demo — visualização completa sem configurações'),
     ]
     usuario = models.CharField(max_length=50, unique=True)
     senha   = models.CharField(max_length=64)
